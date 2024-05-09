@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-user-list',
@@ -7,6 +8,14 @@ import { Component } from '@angular/core';
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.css'
 })
-export class UserListComponent {
+export default class UserListComponent implements OnInit{
+  
+  private userService = inject(UserService)
 
+  ngOnInit(): void {
+    this.userService.list()
+      .subscribe(users => {
+        console.log(users)
+      })
+  }
 }
