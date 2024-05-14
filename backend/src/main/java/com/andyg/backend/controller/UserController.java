@@ -29,17 +29,16 @@ public class UserController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public String createUser(@RequestBody User user){
+    public User createUser(@RequestBody User user){
         user.setCreateUser(LocalDateTime.now());
-        userService.createUser(user);
-        return "Save user";
+        return userService.createUser(user);
     }
 
 
     @PutMapping(value = "/update/{id}")
-    public String updateUser(@PathVariable long id, @RequestBody User user){
-        userService.updateUser(id, user);
-        return "Update user";
+    public User updateUser(@PathVariable long id, @RequestBody User user){
+        return userService.updateUser(id, user);
+
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)

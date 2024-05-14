@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
+import { User } from '../model/user.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -9,19 +10,19 @@ export class UserService {
   private http = inject(HttpClient);
 
   list(){
-    return this.http.get('http://localhost:8080/api/users')
+    return this.http.get<User[]>('http://localhost:8080/api/users')
   }
 
   get(id: number) {
-    return this.http.get(`http://localhost:8080/api/users/${id}`)
+    return this.http.get<User>(`http://localhost:8080/api/users/${id}`)
   }
 
   create(user: any) {
-    return this.http.post('http://localhost:8080/api/users', user)
+    return this.http.post<User>('http://localhost:8080/api/users', user)
   }
   
   update(id: number, user: any) {
-    return this.http.put(`http://localhost:8080/api/users/${id}`, user)
+    return this.http.put<User>(`http://localhost:8080/api/users/${id}`, user)
   }
   
   delete(id: number) {
