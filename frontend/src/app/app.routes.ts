@@ -9,4 +9,8 @@ export const routes: Routes = [
         path: 'form',
         loadComponent: () => import('./user-form/user-form.component')
     },
+    { //para editar un usuario
+        path: ':id/edit',
+        loadComponent: () => import('./user-form/user-form.component')
+    },
 ];

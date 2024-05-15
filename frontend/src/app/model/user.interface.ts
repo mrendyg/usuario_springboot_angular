@@ -1,3 +1,5 @@
+//interfaz para manipulacion de la plantilla usuario
+
 export interface User {
     id?: number;
     name: string;

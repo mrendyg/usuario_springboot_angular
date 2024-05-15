@@ -17,11 +17,11 @@ export class UserService {
     return this.http.get<User>(`http://localhost:8080/api/users/${id}`)
   }
 
-  create(user: any) {
+  create(user: User) {
     return this.http.post<User>('http://localhost:8080/api/users', user)
   }
   
-  update(id: number, user: any) {
+  update(id: number, user: User) {
     return this.http.put<User>(`http://localhost:8080/api/users/${id}`, user)
   }
   

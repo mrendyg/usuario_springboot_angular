@@ -8,26 +8,36 @@
     </button>
 </div>
 
-<table class="border-separate  border border-slate-500 bg-[#5EC1F9]">
-    <thead class="bg-[#6193B0]">
+<table class="">
+    <thead class="bg-[#0136EA] text-[#FFFFFF]">
     <tr>
-        <th class="border border-slate-600">ID</th>
-        <th class="border border-slate-600">Nombre</th>
-        <th class="border border-slate-600">Apellido</th>
-        <th class="border border-slate-600">Email</th>
-        <th class="border border-slate-600">Telefono</th>
-        <th class="border border-slate-600">Fecha Creacion</th>
+        <th class="p-[0.5rem]">ID</th>
+        <th class="p-[0.5rem]">Nombre</th>
+        <th class="p-[0.5rem]">Apellido</th>
+        <th class="p-[0.5rem]">Email</th>
+        <th class="p-[0.5rem]">Telefono</th>
+        <th class="p-[0.5rem]">Fecha Creacion</th>
     </tr>
     </thead>
     <tbody>
         @for(user of users; track user.id) {
             <tr>
-                <td class="p-[0.2rem] border border-slate-700 bg-[#D0D0D0]">{{ user.id }}</td>
-                <td class="p-[0.2rem]  border border-slate-700 bg-[#D0D0D0]">{{ user.name }}</td>
-                <td class="p-[0.2rem] border border-slate-700 bg-[#D0D0D0]">{{ user.lastName}}</td>
-                <td class="p-[0.2rem] border border-slate-700 bg-[#D0D0D0]">{{ user.email }}</td>
-                <td class="p-[0.2rem] border border-slate-700 bg-[#D0D0D0]">{{ user.phone }}</td>
-                <td class="p-[0.2rem] border border-slate-700 bg-[#D0D0D0]">{{ user.createUser | date: "dd/MM/yyyy hh:mm a"}}</td>
+                <td class="p-[0.2rem] border border-slate-700">{{ user.id }}</td>
+                <td class="p-[0.2rem]  border border-slate-700">{{ user.name }}</td>
+                <td class="p-[0.2rem] border border-slate-700">{{ user.lastName}}</td>
+                <td class="p-[0.2rem] border border-slate-700">{{ user.email }}</td>
+                <td class="p-[0.2rem] border border-slate-700">{{ user.phone }}</td>
+                <td class="p-[0.2rem] border border-slate-700">{{ user.createUser | date: "dd/MM/yyyy hh:mm a"}}</td>
+                <td>
+                    <div class="mt-[0.2rem] mb-[0.2rem]">
+                        <button [routerLink]="['/', user.id, 'edit']" class="mr-[0.5rem] ml-[0.5rem] bg-[#0049FF] text-[#FFFFFF] p-[0.5rem] rounded-md">
+                            Editar
+                        </button>
+                        <button class=" bg-[#E44848] text-[#FFFFFF] p-[0.5rem] rounded-md">
+                            Eliminar
+                        </button>
+                    </div>
+                </td>
             </tr>
         }
     </tbody>
