@@ -1,7 +1,7 @@
 //interfaz para manipulacion de la plantilla usuario
 
 export interface User {
-    id?: number;
+    id: number;
     name: string;
     lastName: string;
     email:string;

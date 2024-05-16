@@ -22,10 +22,10 @@ export class UserService {
   }
   
   update(id: number, user: User) {
-    return this.http.put<User>(`http://localhost:8080/api/users/${id}`, user)
+    return this.http.put<User>(`http://localhost:8080/api/users/update/${id}`, user)
   }
   
   delete(id: number) {
-    return this.http.delete(`http://localhost:8080/api/users/${id}`)
+    return this.http.delete(`http://localhost:8080/api/users/delete/${id}`)
   }
 }
