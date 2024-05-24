@@ -13,6 +13,16 @@
         <form [formGroup]="form" (ngSubmit)="save()">
     
             <div class="mb-[0.5rem]">
+                <label form="name">Username</label> 
+                <input id="name" formControlName="username" type="text" placeholder="jperezp" class="flex w-[20rem] border-2 border-[#808080] rounded">
+            </div>    
+            
+            <div class="mb-[0.5rem]">
+                <label form="name">Contraseña</label> 
+                <input id="name" formControlName="password" type="text" placeholder="" class="flex w-[20rem] border-2 border-[#808080] rounded">
+            </div>  
+
+            <div class="mb-[0.5rem]">
                 <label form="name">Nombre</label> 
                 <input id="name" formControlName="name" type="text" placeholder="Jose" class="flex w-[20rem] border-2 border-[#808080] rounded">
             </div>

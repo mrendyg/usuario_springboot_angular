@@ -32,6 +32,8 @@ export default class UserFormComponent implements OnInit{
         this.user = user;
           //rellenamos con los datos del id seleccionado
           this.form = this.formBuilder.group({
+          userName: [user.userName, [Validators.required]],
+          password: [user.password, [Validators.required]],
           name: [user.name, [Validators.required]],
           lastName: [user.lastName, [Validators.required]],
           email: [user.email, [Validators.required]],
@@ -41,6 +43,8 @@ export default class UserFormComponent implements OnInit{
     } else {
       //si no hay datos, entocens es una creacion de usuario
       this.form = this.formBuilder.group({
+        userName: ['', [Validators.required]],
+        password: ['', [Validators.required]],
         name: ['', [Validators.required]],
         lastName: ['', [Validators.required]],
         email: ['', [Validators.required]],

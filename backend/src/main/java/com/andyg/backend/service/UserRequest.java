@@ -1,4 +1,4 @@
-package com.andyg.backend.request;
+package com.andyg.backend.service;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -3,7 +3,7 @@
 <h2 class="m-[1rem] flex justify-center font-semibold text-[1.5rem]">Usuarios</h2>
 
 <div>
-    <button routerLink="/form" class="mb-[0.5rem] bg-[#0049FF] text-[#FFFFFF] p-[0.5rem] rounded-md" >
+    <button routerLink="/users/form" class="mb-[0.5rem] bg-[#0049FF] text-[#FFFFFF] p-[0.5rem] rounded-md" >
         Nuevo Usuario
     </button>
 </div>
@@ -12,6 +12,8 @@
     <thead class="bg-[#0136EA] text-[#FFFFFF]">
     <tr>
         <th class="p-[0.5rem]">ID</th>
+        <th class="p-[0.5rem]">Usuario</th>
+        <th class="p-[0.5rem]">Contraseña</th>
         <th class="p-[0.5rem]">Nombre</th>
         <th class="p-[0.5rem]">Apellido</th>
         <th class="p-[0.5rem]">Email</th>
@@ -23,17 +25,19 @@
         @for(user of users; track user.id) {
             <tr>
                 <td class="p-[0.2rem] border border-slate-700">{{ user.id }}</td>
+                <td class="p-[0.2rem] border border-slate-700">{{ user.userName }}</td>
+                <td class="p-[0.2rem] border border-slate-700">{{ user.password }}</td>
                 <td class="p-[0.2rem]  border border-slate-700">{{ user.name }}</td>
                 <td class="p-[0.2rem] border border-slate-700">{{ user.lastName}}</td>
                 <td class="p-[0.2rem] border border-slate-700">{{ user.email }}</td>
                 <td class="p-[0.2rem] border border-slate-700">{{ user.phone }}</td>
                 <td class="p-[0.2rem] border border-slate-700">{{ user.createUser | date: "dd/MM/yyyy hh:mm a"}}</td>
                 <td>
-                    <div class="mt-[0.2rem] mb-[0.2rem]">
-                        <button [routerLink]="['/', user.id, 'edit']" class="mr-[0.5rem] ml-[0.5rem] bg-[#0049FF] text-[#FFFFFF] p-[0.5rem] rounded-md">
+                    <div class="flex mt-[0.2rem] mb-[0.2rem]">
+                        <button [routerLink]="['/users/', user.id, 'edit']" class="mr-[0.5rem] ml-[0.5rem] bg-[#0049FF] text-[#FFFFFF] p-[0.5rem] rounded-md">
                             Editar
                         </button>
-                        <button class=" bg-[#E44848] text-[#FFFFFF] p-[0.5rem] rounded-md">
+                        <button (click)="deleteUser(user)" class=" bg-[#E44848] text-[#FFFFFF] p-[0.5rem] rounded-md">
                             Eliminar
                         </button>
                     </div>

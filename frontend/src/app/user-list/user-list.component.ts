@@ -17,9 +17,20 @@ export default class UserListComponent implements OnInit{
   users: User[]=[];
 
   ngOnInit(): void {
+    this.loadAll()
+  }
+
+  loadAll() {
     this.userService.list()
-      .subscribe(users => {
-        this.users = users;
-      })
+    .subscribe((users ) => {
+      this.users = users;
+    })
+  }
+
+  deleteUser(user: User){
+    this.userService.delete(user.id)
+    .subscribe(() => {
+      this.loadAll();
+    })
   }
 }

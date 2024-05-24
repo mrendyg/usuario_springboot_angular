@@ -1,2 +1,15 @@
-package com.andyg.backend.service;public class UserResponse {
+package com.andyg.backend.service;
+
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class UserResponse {
+    String message;
 }
